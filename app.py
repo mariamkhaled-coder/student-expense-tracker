@@ -14,17 +14,16 @@ if not os.path.exists("data"):
 
 # ------------------- Load data -------------------
 # ------------------- Load data (always start empty for new users) -------------------
+# ------------------- Load data -------------------
 def load_data():
     if os.path.exists(DATA_PATH):
         df = pd.read_csv(DATA_PATH, parse_dates=["date"])
-        # If CSV has no data, keep it empty with headers
-        if df.empty or df.shape[0] == 0:
-            df = pd.DataFrame(columns=["date", "category", "description", "amount"])
     else:
         df = pd.DataFrame(columns=["date", "category", "description", "amount"])
     return df
 
 df = load_data()
+
 
 
 # ------------------- Reset/Delete all expenses -------------------
